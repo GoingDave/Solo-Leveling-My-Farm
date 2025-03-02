@@ -134,6 +134,13 @@ Freischalttag = {
     "schwarzbeerbusch": 198
 }
 
+def Tutorial():
+    print("\n\n\n\n\n-----------------------------------------------------------------------\n>>> Anleitung <<<\n- Optionen können mit der jeweiligen Zahl oder mit der Eingabe des Namens der Option ausgewählt werden\n- Alle Pflanzen haben einen bestimmten Freischalttag\n- Jede Pflanze bringt einen unterschiedlichen Ertrag und somit einen unterschiedlichen Gewinn ein\n- Man kann Pflanzen, Stromgeneratoren und Wasserpumpen kaufen")
+    Tutorial_Ende = input("\nWenn du alles gelesen hast, drücke die <<Entertaste>>.")
+    if Tutorial_Ende == "":
+        Hauptmenü()
+
+
 def Feldfrucht():
     global Münzen, weizen_Anzahl, Mais_Anzahl, Kartoffel_Anzahl, Sonnenblumen_Anzahl, Ertrag, Pflanzen, Max_Wasserverbrauch, Aktueller_Wasserverbrauch, Energie_verbraucht
     
@@ -392,7 +399,7 @@ def Hauptmenü():
 
 Spielstart = False
 try:
-    Antwort1 = input("Möchtest du ein neues Spiel starten?\n1. Ja\n2. Nein\n   ").strip().lower()
+    Antwort1 = input("\n\n\n\n\nMöchtest du ein neues Spiel starten?\n1. Ja\n2. Nein\n\n\n\n\n   ").strip().lower()
 
     if Antwort1 in ["1", "ja"]:
         print("Du hast 'Ja' ausgewählt.")
@@ -407,9 +414,9 @@ except Exception as e:
 if Spielstart:
     Spiele_Musik()
     print("Starte neues Spiel...")
+    Tutorial()
     Neuer_Tag_Linie()
     zähle_Tage()
     time.sleep(2)
-    Hauptmenü()
 else:
     print("Kein Spiel wurde gestartet.")
