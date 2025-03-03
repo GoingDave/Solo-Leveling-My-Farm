@@ -57,7 +57,7 @@ def Schlaf_Animation():
 
 Schon_geerntet = False
 Ertrag = 0
-weizen_Anzahl = 0
+Weizen_Anzahl = 0
 Mais_Anzahl = 0
 Kartoffel_Anzahl = 0
 Sonnenblumen_Anzahl = 0
@@ -142,14 +142,14 @@ def Tutorial():
 
 
 def Feldfrucht():
-    global Münzen, weizen_Anzahl, Mais_Anzahl, Kartoffel_Anzahl, Sonnenblumen_Anzahl, Ertrag, Pflanzen, Max_Wasserverbrauch, Aktueller_Wasserverbrauch, Energie_verbraucht
+    global Münzen, Weizen_Anzahl, Mais_Anzahl, Kartoffel_Anzahl, Sonnenblumen_Anzahl, Ertrag, Pflanzen, Max_Wasserverbrauch, Aktueller_Wasserverbrauch, Energie_verbraucht
     
     print("\n-----------------------------------------------------------------------")
     Feldfrucht_Wahl = input(f"Welche Feldfrucht möchtest du anplanzen?\nDu hast {Münzen} Münzen\n1. Weizen 🌾 (25 Münzen)\n2. Mais 🌽 (50 Münzen)\n3. Kartoffel 🥔 (100 Münzen)\n4. Sonnenblume 🌻 (200 Münzen)\n\n").lower().strip()
 
     if Feldfrucht_Wahl in ["1", "weizen"]:    
         Feldfrucht_Name = "weizen"
-        Feldfrucht_Anzahl = "weizen_Anzahl"
+        Feldfrucht_Anzahl = "Weizen_Anzahl"
     elif Feldfrucht_Wahl in ["2", "mais"]:
         Feldfrucht_Name = "mais"
         Feldfrucht_Anzahl = "Mais_Anzahl"
@@ -303,7 +303,7 @@ def Ernte():
     
     
     Erntegewinn = 0
-    Erntegewinn += weizen_Anzahl * Ernte_Faktor["weizen"]
+    Erntegewinn += Weizen_Anzahl * Ernte_Faktor["weizen"]
     Erntegewinn += Mais_Anzahl * Ernte_Faktor["mais"]
     Erntegewinn += Kartoffel_Anzahl * Ernte_Faktor["kartoffel"]
     Erntegewinn += Sonnenblumen_Anzahl * Ernte_Faktor["sonnenblume"]
