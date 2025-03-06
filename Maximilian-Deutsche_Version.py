@@ -1,9 +1,6 @@
 import time
 import pygame
 
-
-  
-
 class Pflanzen:
     def __init__(self,Anzahl,Wasserverbrauch,Preise,Ernte_Faktor,Freischalttag):
         self.Anzahl = Anzahl
@@ -134,17 +131,17 @@ def Feldfrucht():
         time.sleep(2)
         return
 
-    if Münzen >= int(Pflanzen_Preise[Feldfrucht_Name]):
-        Münzen -= Pflanzen_Preise[Feldfrucht_Name]
+    if Münzen >= int(Pflanzen_Dictionary[Feldfrucht_Name].Preise):
+        Münzen -= Pflanzen_Dictionary[Feldfrucht_Name].Preise
         globals()[Feldfrucht_Anzahl] += 1
         Pflanzen +=1
         Energie_verbraucht += 25
-        Aktueller_Wasserverbrauch += Wasserverbrauch[Feldfrucht_Name]
-        Ertrag += Ernte_Faktor[Feldfrucht_Name]
+        Aktueller_Wasserverbrauch += Pflanzen_Dictionary[Feldfrucht_Name].Wasserverbrauch
+        Ertrag += Pflanzen_Dictionary[Feldfrucht_Name].Ernte_Faktor
         
         print(f"Du hast 1 {Feldfrucht_Name.capitalize()} angepflanzt! 🌱 (Restliche Münzen: {Münzen})")
     else:
-        print(f"Nicht genug Münzen! Du brauchst {Pflanzen_Preise[Feldfrucht_Name] - Münzen} Münzen mehr. ❌")
+        print(f"Nicht genug Münzen! Du brauchst {Pflanzen_Dictionary[Feldfrucht_Name].Preise - Münzen} Münzen mehr. ❌")
 
 def Fruchtbäume():
     global Münzen, Apfelbaum_Anzahl, Kirschbaum_Anzahl, Birnenbaum_Anzahl, Orangenbaum_Anzahl, Ertrag, Pflanzen, Max_Wasserverbrauch, Aktueller_Wasserverbrauch, Energie_verbraucht
