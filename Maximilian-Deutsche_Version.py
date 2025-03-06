@@ -1,6 +1,39 @@
 import time
 import pygame
 
+
+  
+
+class Pflanzen:
+    def __init__(self,Anzahl,Wasserverbrauch,Preise,Ernte_Faktor,Freischalttag):
+        self.Anzahl = Anzahl
+        self.Wasserverbrauch = Wasserverbrauch
+        self.Preise = Preise
+        self.Ernte_Faktor = Ernte_Faktor
+        self.Freischalttag = Freischalttag
+
+Pflanzen_Dictionary = {
+    "weizen" : Pflanzen(0,5,25,2.5,1),
+    "mais" : Pflanzen(0,10,50,5,20),
+    "kartoffel" : Pflanzen(0,20,100,10,40),
+    "sonnenblume" : Pflanzen(0,40,200,20,80),
+    "apfelbaum" : Pflanzen(0,8,40,4,16),
+    "kirschbaum" : Pflanzen(0,16,80,8,32),
+    "birnenbaum" : Pflanzen(0,32,160,16,64),
+    "orangenbaum" : Pflanzen(0,64,320,32,128),
+    "erdbeerbusch" : Pflanzen(0,12,60,6,24),
+    "himbeerbusch" : Pflanzen(0,24,120,12,48),
+    "blaubeerbusch" : Pflanzen(0,48,240,24,96),
+    "schwarzbeerbusch" : Pflanzen(0,96,480,48,198),
+}
+class Infrastruktur:
+    def __init__(self,Anzahl,Preise):
+        self.Anzahl = Anzahl
+        self.Preise = Preise
+
+"Stromgenerator" = Infrastruktur(1,50)
+"wassertank" = Infrastruktur(1,300)
+
 pygame.mixer.init()
 
 Musik = "SalmonLikeTheFish - Zion.mp3"
@@ -57,82 +90,6 @@ def Schlaf_Animation():
 
 Schon_geerntet = False
 Ertrag = 0
-Weizen_Anzahl = 0
-Mais_Anzahl = 0
-Kartoffel_Anzahl = 0
-Sonnenblumen_Anzahl = 0
-Apfelbaum_Anzahl = 0
-Kirschbaum_Anzahl = 0
-Birnenbaum_Anzahl = 0
-Orangenbaum_Anzahl = 0
-Erdbeerbusch_Anzahl = 0
-Himbeerbusch_Anzahl = 0
-Blaubeerbusch_Anzahl = 0
-Schwarzbeerbusch_Anzahl = 0
-
-Wasserverbrauch = {
-    "weizen": 5,
-    "mais": 10,
-    "kartoffel": 50,
-    "sonnenblume": 100,
-    "apfelbaum": 8,
-    "kirschbaum": 16,
-    "birnenbaum": 32,
-    "orangenbaum":64,
-    "erdbeerbusch": 12,
-    "himbeerbusch": 24,
-    "blaubeerbusch": 48,
-    "schwarzbeerbusch": 96
-}
-Infrastruktur_Preise = {
-    "Stromgenerator": 50,
-    "wassertank": 300
-}
-
-Pflanzen_Preise = {
-    "weizen": 25,
-    "mais": 50,
-    "kartoffel": 100,
-    "sonnenblume": 200,
-    "apfelbaum": 40,
-    "kirschbaum": 80,
-    "birnenbaum": 160,
-    "orangenbaum":320,
-    "erdbeerbusch": 60,
-    "himbeerbusch": 120,
-    "blaubeerbusch": 240,
-    "schwarzbeerbusch": 480
-}
-
-Ernte_Faktor = {
-    "weizen": 2.5,
-    "mais": 5,
-    "kartoffel": 10,
-    "sonnenblume": 20,
-    "apfelbaum": 4,
-    "kirschbaum": 8,
-    "birnenbaum": 16,
-    "orangenbaum": 32,
-    "erdbeerbusch": 6,
-    "himbeerbusch": 12,
-    "blaubeerbusch": 24,
-    "schwarzbeerbusch": 48
-}
-
-Freischalttag = {
-    "weizen": 1,
-    "mais": 20,
-    "kartoffel": 40,
-    "sonnenblume": 80,
-    "apfelbaum": 16,
-    "kirschbaum": 32,
-    "birnenbaum": 64,
-    "orangenbaum": 128,
-    "erdbeerbusch": 24,
-    "himbeerbusch": 48,
-    "blaubeerbusch": 96,
-    "schwarzbeerbusch": 198
-}
 
 def Tutorial():
     print("\n\n\n\n\n-----------------------------------------------------------------------\n>>> Anleitung <<<\n- Optionen können mit der jeweiligen Zahl oder mit der Eingabe des Namens der Option ausgewählt werden\n- Alle Pflanzen haben einen bestimmten Freischalttag\n- Jede Pflanze bringt einen unterschiedlichen Ertrag und somit einen unterschiedlichen Gewinn ein\n- Man kann Pflanzen, Stromgeneratoren und Wasserpumpen kaufen")
@@ -163,11 +120,11 @@ def Feldfrucht():
         print("Ungültige Eingabe. Versuch es nochmal.")
         return
 
-    if Tageszähler < Freischalttag[Feldfrucht_Name]:
-        print(f"Du musst Tag {Freischalttag[Feldfrucht_Name]} erreichen, um {Feldfrucht_Name.replace('_', ' ').capitalize()} kaufen zu können.")
+    if Tageszähler < Pflanzen_Dictionary[Feldfrucht_Name].Freischalttag:
+        print(f"Du musst Tag {Pflanzen_Dictionary[Feldfrucht_Name].Freischalttag} erreichen, um {Feldfrucht_Name.replace('_', ' ').capitalize()} kaufen zu können.")
         time.sleep(2)
         return
-    if Max_Wasserverbrauch < Aktueller_Wasserverbrauch + Wasserverbrauch[Feldfrucht_Name]:
+    if Max_Wasserverbrauch < Aktueller_Wasserverbrauch + Pflanzen_Dictionary[Feldfrucht_Name].Wasserverbrauch:
         print("Du hast nicht genug Wasser, um diese Pflanze pflanzen zu können..")
         time.sleep(2)
         return
