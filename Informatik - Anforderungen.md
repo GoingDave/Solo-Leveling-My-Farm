@@ -1,7 +1,7 @@
 Anforderungen für das Spiel (Projekt für den Informatik Unterricht der Kantonschule St. Gallen am Burggraben)
 _____________________________________________________________________________________________________________________
 
-1.1   Inhaltliche Anforderungen
+# 1.1   Inhaltliche Anforderungen
   • Das Spiel soll auf der Console gespielt werden.
   • Der Spieler soll ein Anfangskapital von 1000 Talern erhalten.
   • Der Spieler soll Saatgut, Zuchttiere, Maschinen und Mitarbeiter erwerben können.
@@ -16,7 +16,7 @@ ________________________________________________________________________________
   • Beim Spielstart kann man die Anzahl der Runden wählen.
 
 
-1.2   Technische Anforderungen
+# 1.2   Technische Anforderungen
   • Das Spiel soll in Python3 umgesetzt werden.
   • Das Spiel soll in einem Git-Repository abgelegt werden.
   • Das Git-Repository soll als Public Repo auf GitHub.com veröffentlicht werden.
