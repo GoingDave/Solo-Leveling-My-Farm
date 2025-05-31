@@ -6,6 +6,9 @@
 - download the necessary files
 - install pygame in your cmd-console
 
+# Language:
+- only in German available
+
 # Game:
 In "Solo Leveling My Farm" your goal is to build your farming empire!
 First, you can choose how many rounds (i.e. years, 1 year = 52 weeks) you want to play.
