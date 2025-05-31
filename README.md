@@ -18,7 +18,7 @@ You also need enough power, water and animal food.
 We implemented a simulated weather changing every week - it has an effect on your animals and plants.
 To upgrade the production of your plants and animals you can hire specialized workers. 
 
-# Necessities:
+# Dependencies:
 - pygame (to install: "pip install pygame")
 
 # Old files:
