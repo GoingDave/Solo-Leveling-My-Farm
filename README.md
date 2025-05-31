@@ -2,6 +2,9 @@
 - "SalmonLikeTheFish - Zion.mp3" is for the background music
 - Latest file: main-29-05-2025.py
 
+#Necessities:
+- pygame (to install: "pip install pygame")
+
 # Old files:
 - Things.py is for the console playable version (not finished)
 - Things1.py is a second version of Things.py (not finished)
