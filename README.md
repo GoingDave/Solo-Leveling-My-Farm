@@ -2,7 +2,7 @@
 - "SalmonLikeTheFish - Zion.mp3" is for the background music
 - Latest file: main-29-05-2025.py
 
-#Necessities:
+# Necessities:
 - pygame (to install: "pip install pygame")
 
 # Old files:
